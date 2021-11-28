@@ -30,12 +30,6 @@ func (authService *AuthService) CheckAuth(user *model.SysUser) (userRecord *mode
 func (authService *AuthService) GenerateVerificode() (string, string, error) {
 	// 生成图形验证码
 	id, base := captcha.GetCaptcha()
-	//// 存储redis
-	//err := redis.Rdb.Set(id, id, 60*time.Second).Err()
-	////  异常
-	//if err != nil {
-	//	return "", "", err
-	//}
 	return id, base, nil
 }
 

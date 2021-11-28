@@ -1,0 +1,4 @@
+*.scss linguist-language=TypeScript
+*.less linguist-language=TypeScript
+*.html linguist-language=TypeScript
+*.vue linguist-language=Go

@@ -1,0 +1,66 @@
+.mode-fade-enter-active,
+.mode-fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.mode-fade-enter-from,
+.mode-fade-leave-to {
+  opacity: 0;
+}
+
+.theme-container {
+  display: flex;
+  .theme-select {
+    margin: 2px;
+    width: 20px;
+    display: inline-block;
+    height: 20px;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+// 浅蓝色主题
+.check-default-theme {
+  background-color: #1890ff;
+  border: 1px solid #1890ff;
+  border-color: #1890ff;
+}
+
+// 深蓝主题
+.check-drak-blue-theme {
+  background-color: rgb(9, 96, 189);
+  border: 1px solid rgb(9, 96, 189);
+  border-color: rgb(9, 96, 189);
+  background-color: rgb(9, 96, 189);
+}
+
+// 浅红主题
+
+.check-red-theme {
+  background-color: rgb(238, 79, 18);
+  border: 1px solid rgb(238, 79, 18);
+  border-color: rgb(238, 79, 18);
+  background-color: rgb(238, 79, 18);
+}
+
+// 基佬紫主题
+
+.check-fag-purple-theme {
+  background-color: #9e9ffa;
+  border: 1px solid #9e9ffa;
+  border-color: #9e9ffa;
+  background-color: #9e9ffa;
+}
+
+.theme-switch-container {
+  display: flex;
+  .theme-switch-item {
+    width: 100%;
+  }
+}

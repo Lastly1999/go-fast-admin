@@ -1,0 +1,44 @@
+.system-setup {
+  .setup-item {
+    width: 40px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    transition: 0.2s linear;
+    float: right;
+    &:hover {
+      cursor: pointer;
+      background-color: #f0f2f5;
+    }
+  }
+}
+
+.setup-item-active {
+  cursor: pointer;
+  background-color: #f0f2f5 !important;
+}
+
+.menu-item-title {
+  padding: 2px 5px 2px 5px;
+  user-select: none;
+  border-bottom: 1px solid #eee;
+}
+
+.setup-select-title {
+  user-select: none;
+  margin-left: 5px;
+  font-family: 500;
+}
+
+.setup-select-item {
+  user-select: none;
+  padding: 6px 0 6px 16px;
+  transition: 0.2s linear;
+  .setup-select-item-title {
+    margin-left: 10px;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: #f0f2f5;
+  }
+}

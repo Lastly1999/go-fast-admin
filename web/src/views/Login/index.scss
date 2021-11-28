@@ -1,0 +1,23 @@
+.login-container {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .element-container-left {
+        img {
+            height: 100%;
+        }
+    }
+    .element-container-right {
+        img {
+            height: 80%;
+        }
+    }
+    .bgElement {
+        width: 100rem;
+    }
+}

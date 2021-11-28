@@ -1,0 +1,69 @@
+/*
+ ************ 全局样式重写 *************
+ * 全局样式处理 这里负责处理一些组件库的样式重写以及一些全局样式
+ * @author lastly
+ * @date 2021年8月25日22:04:51
+ *************************************
+ */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body,
+html,
+#app {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.system-pagination {
+  text-align: right;
+  padding: 8px !important;
+}
+
+.system-box-shadow {
+  box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
+}
+
+.ant-layout-header {
+  height: 50px !important;
+  background-color: #fff !important;
+  padding: 0 20px 0 30px !important;
+}
+
+.ant-card-head {
+  min-height: 20px !important;
+  padding: 0 10px !important;
+  .ant-card-head-title {
+    padding: 5px 0;
+  }
+}
+
+.ant-table-body {
+  overflow: auto !important;
+  &::-webkit-scrollbar {
+    width: 6px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: rgba(144, 147, 153, 0.5);
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: transparent;
+  }
+}
+
+/*菜单栏设置popover 样式重写*/
+.setup-popover {
+  .ant-popover-content {
+    .ant-popover-inner {
+      .ant-popover-inner-content {
+        padding: 0 !important;
+      }
+    }
+  }
+}

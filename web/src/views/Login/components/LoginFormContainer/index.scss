@@ -1,0 +1,30 @@
+.login-form-container {
+    width: 30rem;
+    display: inline-block;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    padding: 5px 30px;
+    .form-title {
+        font-size: 27px;
+        user-select: none;
+        text-align: left;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    }
+    .form-btn-login{
+        margin-top: 20px;
+    }
+}
+:deep(.el-form-item) {
+    margin: 10px 0;
+}
+
+:deep(.el-form-item__label) {
+    line-height: normal;
+}
+
+:deep(.el-input__prefix) {
+    left: 9px;
+}

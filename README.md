@@ -4,8 +4,7 @@
 ### 前端技术栈
 ## 1.Vue3 + TypeScript + Less or Sass
 ## 服务端方面
-### Web框架：Gin
-### ORM框架：Gorm
-### 权限框架：Casbin
-### 鉴权验证：JWT
-# 2021年11月29日14:12:27
+#### Web框架：Gin
+#### ORM框架：Gorm
+#### 权限框架：Casbin
+#### 鉴权验证：JWT

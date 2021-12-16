@@ -11,4 +11,5 @@ type SysUser struct {
 	RoleId     uint      `json:"roleId" gorm:"column:role_id;comment:权限id;"`
 	Status     *bool     `json:"status" gorm:"column:status;default:true;comment:用户状态"`
 	Role       []SysRole `json:"role" gorm:"many2many:sys_user_roles;"` // 多对多 用户角色表
+	DepId      string
 }

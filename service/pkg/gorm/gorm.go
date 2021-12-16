@@ -52,6 +52,7 @@ func Setup() {
 func initDataBase() {
 	var err error
 	err = global.GLOBAL_DB.AutoMigrate(
+		&model.SysDepartments{},
 		&model.SysUser{},
 		&model.SysRole{},
 		&model.SysBaseMenu{},

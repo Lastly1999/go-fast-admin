@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	log.SetLogs(zap.DebugLevel, log.LOGFORMAT_CONSOLE, "./log/gin-example.log")
+	log.SetLogs(zap.DebugLevel, log.LOGFORMAT_CONSOLE, "./logs/server.log")
 	go func() {
 		setting.Setup() // 初始化配置文件
 		redis.Setup()   // redis初始化

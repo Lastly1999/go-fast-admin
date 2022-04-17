@@ -30,7 +30,17 @@ func ApiCheckRule(e *casbin.Enforcer) gin.HandlerFunc {
 		// 获取角色id 为了跟数据库的policy规则对比 sub
 		sub := strconv.Itoa(int(parseToken.RoleId))
 		// 判断策略中是否存在放行
-		enforce, _ := e.Enforce(sub, obj, act)
+		enforce, err := e.Enforce(sub, obj, act)
+		if err != nil {
+			global.ZAP_LOG.Info("权限认证失败，您没有此api权限")
+			errMsg := fmt.Sprintf("RequestURL：%s errorMsg：api鉴权错误，您没有此api权限", obj)
+			context.JSON(http.StatusUnauthorized, gin.H{
+				"code": http.StatusUnauthorized,
+				"msg":  errMsg,
+				"data": nil,
+			})
+			context.Abort()
+		}
 		if enforce {
 			successMsg := fmt.Sprintf("RequestURL：%s msg：api鉴权通过，身份认证成功", obj)
 			global.ZAP_LOG.Info(successMsg)

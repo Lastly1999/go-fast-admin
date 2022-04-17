@@ -1,6 +1,6 @@
 module fast-admin-service
 
-go 1.17
+go 1.18
 
 require (
 	github.com/casbin/casbin/v2 v2.39.1

@@ -1,8 +1,10 @@
 package model
 
-import "gorm.io/gorm"
+import (
+	"fast-admin-service/global"
+)
 
 type SysIcon struct {
-	gorm.Model
+	global.Model
 	IconName string `json:"iconName" gorm:"column:icon_name"`
 }

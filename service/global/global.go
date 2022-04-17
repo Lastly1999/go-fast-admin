@@ -14,8 +14,8 @@ var (
 )
 
 type Model struct {
-	ID        uint `json:"id" gorm:"primarykey"`
-	CreatedAt utils.LocalTime
-	UpdatedAt utils.LocalTime
-	DeletedAt *gorm.DeletedAt `gorm:"index"`
+	ID        uint            `json:"id" gorm:"primarykey"`
+	CreatedAt utils.LocalTime `json:"createdAt"`
+	UpdatedAt utils.LocalTime `json:"updatedAt"`
+	DeletedAt *gorm.DeletedAt `json:"deletedAt" gorm:"index"`
 }

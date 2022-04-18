@@ -132,3 +132,18 @@ func (roleApi *RoleApi) UpdateRoleBaseMenu(c *gin.Context) {
 	}
 	appRes.Response(http.StatusOK, enum.SUCCESS, nil)
 }
+
+// UpdateRoleStatus
+// @Tags Auth
+// @Summary 修改角色启用状态
+// @Success 200 {string} string "{"success":true,"data":{},"msg":"ok"}"
+// @Router /role/status/:id [patch]
+func (roleApi *RoleApi) UpdateRoleStatus(c *gin.Context) {
+	appRes := app.Gin{C: c}
+	err := roleService.UpdateRoleStatus(32)
+	if err != nil {
+		appRes.Response(http.StatusOK, enum.ERROR, nil)
+		return
+	}
+	appRes.Response(http.StatusOK, enum.SUCCESS, nil)
+}

@@ -14,6 +14,7 @@ type IRoleService interface {
 	PutRole(role *model.SysRole) (err error)
 	UpdateRole(role *model.SysRole) (err error)
 	UpdateRoleMenu(roleId string, menuIds []uint) error
+	UpdateRoleStatus(roleId uint) error
 }
 
 // DeleteRoleById 删除角色
@@ -55,6 +56,17 @@ func (roleService *RoleService) UpdateRoleMenu(roleId uint, menuIds []uint) erro
 		sysBaseMenuIds = append(sysBaseMenuIds, &model.SysBaseMenu{Model: global.Model{ID: v}})
 	}
 	err := global.GLOBAL_DB.Model(&model.SysRole{RoleId: roleId}).Association("BaseMenu").Replace(sysBaseMenuIds)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+// UpdateRoleStatus 更新角色状态
+func (roleService *RoleService) UpdateRoleStatus(roleId uint) error {
+	roleInfo := &model.SysRole{}
+	//	是否存在该角色
+	err := global.GLOBAL_DB.Raw("SELECT * FROM sys_roles WHERE sys_roles.role_id = ?", roleId).Scan(&roleInfo).Error
 	if err != nil {
 		return err
 	}

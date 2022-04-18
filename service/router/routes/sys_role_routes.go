@@ -19,5 +19,7 @@ func InitRoleRouter(r *gin.RouterGroup) {
 		roleRouter.DELETE("/role/:id", roleApi.DeleteRoleById)
 		// 修改角色菜单
 		roleRouter.PATCH("/menu", roleApi.UpdateRoleBaseMenu)
+		// 更新角色状态
+		roleRouter.PATCH("/status/:id", roleApi.UpdateRoleStatus)
 	}
 }

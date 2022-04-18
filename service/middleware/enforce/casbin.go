@@ -32,10 +32,10 @@ func ApiCheckRule(e *casbin.Enforcer) gin.HandlerFunc {
 		// 判断策略中是否存在放行
 		enforce, err := e.Enforce(sub, obj, act)
 		if err != nil {
-			global.ZAP_LOG.Info("权限认证失败，您没有此api权限")
+			global.ZAP_LOG.Error("权限认证失败，您没有此api权限")
 			errMsg := fmt.Sprintf("RequestURL：%s errorMsg：api鉴权错误，您没有此api权限", obj)
-			context.JSON(http.StatusUnauthorized, gin.H{
-				"code": http.StatusUnauthorized,
+			context.JSON(http.StatusBadRequest, gin.H{
+				"code": http.StatusBadRequest,
 				"msg":  errMsg,
 				"data": nil,
 			})
@@ -46,10 +46,10 @@ func ApiCheckRule(e *casbin.Enforcer) gin.HandlerFunc {
 			global.ZAP_LOG.Info(successMsg)
 			context.Next()
 		} else {
-			global.ZAP_LOG.Info("权限认证失败，您没有此api权限")
+			global.ZAP_LOG.Error("权限认证失败，您没有此api权限")
 			errMsg := fmt.Sprintf("RequestURL：%s errorMsg：api鉴权错误，您没有此api权限", obj)
-			context.JSON(http.StatusUnauthorized, gin.H{
-				"code": http.StatusUnauthorized,
+			context.JSON(http.StatusBadRequest, gin.H{
+				"code": http.StatusBadRequest,
 				"msg":  errMsg,
 				"data": nil,
 			})

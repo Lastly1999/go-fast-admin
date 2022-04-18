@@ -20,6 +20,6 @@ func InitRoleRouter(r *gin.RouterGroup) {
 		// 修改角色菜单
 		roleRouter.PATCH("/menu", roleApi.UpdateRoleBaseMenu)
 		// 更新角色状态
-		roleRouter.PATCH("/status/:id", roleApi.UpdateRoleStatus)
+		roleRouter.PATCH("/status/:id/:status", roleApi.UpdateRoleStatus)
 	}
 }

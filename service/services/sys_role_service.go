@@ -13,8 +13,8 @@ type IRoleService interface {
 	DeleteRoleById(id int) (err error)
 	PutRole(role *model.SysRole) (err error)
 	UpdateRole(role *model.SysRole) (err error)
-	UpdateRoleMenu(roleId string, menuIds []uint) error
-	UpdateRoleStatus(roleId uint) error
+	UpdateRoleMenu(roleId uint, menuIds []uint) error
+	UpdateRoleStatus(roleId int, status bool) error
 }
 
 // DeleteRoleById 删除角色
@@ -63,10 +63,8 @@ func (roleService *RoleService) UpdateRoleMenu(roleId uint, menuIds []uint) erro
 }
 
 // UpdateRoleStatus 更新角色状态
-func (roleService *RoleService) UpdateRoleStatus(roleId uint) error {
-	roleInfo := &model.SysRole{}
-	//	是否存在该角色
-	err := global.GLOBAL_DB.Raw("SELECT * FROM sys_roles WHERE sys_roles.role_id = ?", roleId).Scan(&roleInfo).Error
+func (roleService *RoleService) UpdateRoleStatus(roleId int, status string) error {
+	err := global.GLOBAL_DB.Raw("UPDATE sys_roles SET sys_roles.`status` = ? WHERE sys_roles.role_id = ?", status, roleId).Error
 	if err != nil {
 		return err
 	}

@@ -140,9 +140,12 @@ func (roleApi *RoleApi) UpdateRoleBaseMenu(c *gin.Context) {
 // @Router /role/status/:id [patch]
 func (roleApi *RoleApi) UpdateRoleStatus(c *gin.Context) {
 	appRes := app.Gin{C: c}
-	err := roleService.UpdateRoleStatus(32)
+	params := c.Param("id")
+	status := c.Param("status")
+	roleId, err := strconv.Atoi(params)
+	err = roleService.UpdateRoleStatus(roleId, status)
 	if err != nil {
-		appRes.Response(http.StatusOK, enum.ERROR, nil)
+		appRes.Response(http.StatusOK, enum.ERROR, err.Error())
 		return
 	}
 	appRes.Response(http.StatusOK, enum.SUCCESS, nil)

@@ -14,7 +14,13 @@ type IRoleService interface {
 	PutRole(role *model.SysRole) (err error)
 	UpdateRole(role *model.SysRole) (err error)
 	UpdateRoleMenu(roleId uint, menuIds []uint) error
-	UpdateRoleStatus(roleId int, status bool) error
+	UpdateRoleStatus(roleId int, status string) error
+	GetRoleInfoById(roleId int) *model.SysRole
+}
+
+// GetRoleInfoById 查询角色信息详情
+func (roleService *RoleService) GetRoleInfoById(roleId int) *model.SysRole {
+
 }
 
 // DeleteRoleById 删除角色

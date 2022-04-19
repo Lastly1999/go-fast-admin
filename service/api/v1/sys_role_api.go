@@ -20,6 +20,7 @@ type IRoleApi interface {
 	PutRole(c *gin.Context)
 	UpdateRoleById(c *gin.Context)
 	UpdateRoleBaseMenu(c *gin.Context)
+	GetRoleInfoById(c *gin.Context)
 }
 
 var roleService services.RoleService
@@ -149,4 +150,19 @@ func (roleApi *RoleApi) UpdateRoleStatus(c *gin.Context) {
 		return
 	}
 	appRes.Response(http.StatusOK, enum.SUCCESS, nil)
+}
+
+// GetRoleInfoById
+// @Tags Auth
+// @Summary 获取角色信息详情
+// @Success 200 {string} string "{"success":true,"data":{},"msg":"ok"}"
+// @Router /role/status/:id [patch]
+func (roleApi *RoleApi) GetRoleInfoById(c *gin.Context) {
+	appRes := app.Gin{C: c}
+	params := c.Param("id")
+	roleId, err := strconv.Atoi(params)
+	if err != nil {
+		appRes.Response(http.StatusOK, enum.INVALID_PARAMS, err.Error())
+		return
+	}
 }

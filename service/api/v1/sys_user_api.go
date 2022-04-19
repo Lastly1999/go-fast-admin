@@ -35,14 +35,14 @@ var userService services.UserService
 func (userApi *UserApi) GetSystemUsers(c *gin.Context) {
 	appRes := app.Gin{C: c}
 	//infoParams := request.PageInfo{}
-	infoParams := &request.SystemUserListParams{}
-	err := c.ShouldBindJSON(infoParams)
+	infoParams := request.SystemUserListParams{}
+	err := c.ShouldBindJSON(&infoParams)
 	if err != nil {
-		global.ZAP_LOG.Info(err.Error())
+		global.ZAP_LOG.Error(err.Error())
 		appRes.Response(http.StatusOK, enum.BIN_JSON_ERROR, nil)
 		return
 	}
-	users, total, err := userService.GetUsers(infoParams)
+	users, total, err := userService.GetUsers(&infoParams)
 	if err != nil {
 		return
 	}

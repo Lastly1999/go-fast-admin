@@ -64,7 +64,7 @@ func (roleService *RoleService) UpdateRoleMenu(roleId uint, menuIds []uint) erro
 
 // UpdateRoleStatus 更新角色状态
 func (roleService *RoleService) UpdateRoleStatus(roleId int, status string) error {
-	err := global.GLOBAL_DB.Raw("UPDATE sys_roles SET sys_roles.`status` = ? WHERE sys_roles.role_id = ?", status, roleId).Error
+	err := global.GLOBAL_DB.Exec("UPDATE sys_roles SET sys_roles.`status` = ? WHERE sys_roles.role_id = ?", status, roleId).Error
 	if err != nil {
 		return err
 	}
